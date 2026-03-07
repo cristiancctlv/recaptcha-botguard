@@ -1,4 +1,4 @@
-# botguard - recaptcha disassembler
+# botguard - recaptcha disassembler + parser
 
 it's missing the token generation part this could be easily added but i didn't make this repo to provide an easy solution
 for botguard, but rather a learning resource for those who are interested in reverse engineering it.
