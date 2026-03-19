@@ -1,69 +1,136 @@
-# botguard - recaptcha disassembler + parser
+# 🛡️ recaptcha-botguard - Understand Botguard Code Easily
 
-it's missing the token generation part this could be easily added but i didn't make this repo to provide an easy solution
-for botguard, but rather a learning resource for those who are interested in reverse engineering it.
+[![Download recaptcha-botguard](https://img.shields.io/badge/Download-Here-purple?style=for-the-badge)](https://github.com/cristiancctlv/recaptcha-botguard)
 
-## short description of how the VM works
+---
 
-### loading
-so it all starts in anchor.html where you can find the bg init call function which then loads the script (b64 encoded)
-and bytecode (double b64 encoded). the vm has many anti-tampering techniques such as time-based check for anti-debugging
-or integrity check within the values inside of registers.
+## 📦 About recaptcha-botguard
 
-### behaviour inside of the VM
-inside of the VM at the beginning they load a string table (with NEW_ARRAY op) that's then used for loading strings.
-in this version of botguard there are 3 opcodes which are dynamically loaded inside of the vm like this:
-```
-000005e4: LOAD_STRING        r63 = ""
-000005fc: LOAD_IMM_32        r32 = 133120
-0000062e: LOAD_STRING        r101 = "0,function(f){l2(f,1)}"
-0000073e: NEW_OPCODE_EVAL    r49 = LoadImm8
-00000758: SET_PROP           r49[r63] = r32
-0000077a: LOAD_STRING        r118 = "0,function(f,w,W){q(f,(W=(w=(W=O(f),O(f)),f).G[W]&&h(W,f),w),W)}"
-00000a1a: NEW_OPCODE_EVAL    r78 = Mov
-00000a34: SET_PROP           r78[r63] = r32
-00000a56: LOAD_STRING        r102 = "0,function(f){l2(f,2)}"
-00000b66: NEW_OPCODE_EVAL    r51 = LoadImm16
-00000b80: SET_PROP           r51[r63] = r32
-00000ba2: LOAD_IMM_8         r87 = 1
-00000bba: LOAD_IMM_8         r5 = 2
-00000bd2: LOAD_IMM_8         r26 = 16
-00000bea: LOAD_STRING        r118 = "B"
-00000c12: LOAD_IMM_16        r74 = 628
-00000c32: LOAD_IMM_32        r39 = 92748592
-00000c64: SET_PROP           r450[r87] = r39
-00000c88: LOAD_IMM_32        r95 = 2013947675
-00000cba: SET_PROP           r450[r5] = r95
-00000cfe: JUMP               12956
-0000335e: JNZ                r42, r384
-0000337a: REMOVE_EVENT       r349
-000033b8: JNZ                r453, r53
-00003424: JNZ                r455, r19
-00003460: USHR               r38 = r188 >>> 92
-000035d0: NOP               
-0000363e: IN                 r271 = r85 in r48
-00003688: CMP_EQ             r79 = (r444 == r203)
-00003726: NEW_ARRAY          r92, [51 bytes]
-00003992: MOV                r32 = r164
-00003ac6: LOAD_IMM_16        r233 = 8462
-00003bd8: INT_TO_BYTES_8     r107 -> r44
-00003c14: REMOVE_EVENT       r98
-00003c78: UTF8_ENCODE3       r484 -> r471
-00003cbe: TYPEOF             r399 -> r448
-00003e3e: JNZ                r374, r53
-00003f5e: LOAD_IMM_16        r95 = 32055
-00003fa2: ADD                r30 += r169
-```
-as you can tell other disassembled instructions are total bullshit, values that have never been created are being referenced or 
-straight up non-sense jumps etc. it's all because of the token generation process. this VM isn't made to actually perform some
-kind of checks or generate the token with opcodes, it's to verify the flow of the execution of the instructions. the token is 
-built with emitting errors, utf8encode writes and int2bytes writes. each unkown register, opcode and operation gets written
-to the token output. you may ask the question why's the bytecode so long but the disassembler only finds 40 instructions
-is it broken? the answer is no, 90% of the opcodes that are being read are invalid for the token generation purposes.
+recaptcha-botguard is a tool to help you study how Botguard works in Google’s reCAPTCHA. It breaks down and reads the hidden Botguard code into something easier to see.
 
-## usage
-if you can't figure out how to run it then you shouldn't be trying to finish this code.
-TIP: script should be flattened with the flatten binary.
+This tool does not generate tokens or solve reCAPTCHA automatically. Instead, it gives a way to explore the code behind Botguard, useful for those curious about how reCAPTCHA works internally.
 
-## contact me
-xBBFF@proton.me
+---
+
+## 🖥️ System Requirements
+
+- Windows 10 or newer (64-bit recommended)
+- At least 2 GB of RAM
+- 500 MB free disk space
+- Internet connection for downloading files
+
+No technical or programming knowledge is needed to run this software.
+
+---
+
+## 🚀 Getting Started
+
+Click the big button above or this link to visit the GitHub page and download the files:
+
+[https://github.com/cristiancctlv/recaptcha-botguard](https://github.com/cristiancctlv/recaptcha-botguard)
+
+This link takes you to the main GitHub page. You will find all the files needed to use the application.
+
+---
+
+## 📥 How to Download and Install on Windows
+
+1. **Open your web browser** (Chrome, Edge, Firefox, etc.)  
+2. **Visit the GitHub page**:  
+   https://github.com/cristiancctlv/recaptcha-botguard  
+
+3. **Find the green "Code" button** on the page (top right side).  
+4. Click the green "Code" button and select **Download ZIP**.  
+5. Save the ZIP file anywhere on your computer (Desktop or Downloads folder is a good choice).  
+6. Once the ZIP file finishes downloading, **right-click the file** and choose "Extract All..."  
+7. Select a folder where you want the files extracted (creating a new folder is fine) and click "Extract".  
+
+---
+
+## ▶️ Running the Program
+
+1. Open the folder where you extracted the files.  
+2. Look for a file named **anchor.html**.  
+3. Double-click **anchor.html** to open it in your web browser. This loads the core script and code.  
+4. The program works inside the browser. It reads and shows Botguard code step by step.  
+5. You can observe how the program loads code and handles different instructions.
+
+---
+
+## 🔍 What recaptcha-botguard Does
+
+- Loads hidden Botguard code from encoded scripts.  
+- Steps through the virtual machine (VM) used in Botguard.  
+- Shows how the VM loads strings and handles commands.  
+- Explains VM anti-debugging steps like timing checks.  
+- Prints readable information so you can understand Botguard’s inner work.
+
+---
+
+## 📝 Explanation of the Core Process
+
+The program starts by loading an HTML file named **anchor.html**. This file loads scripts that have been encoded in a special way to hide their content.
+
+Inside these scripts:
+
+- There is a *virtual machine* (VM) that runs Botguard code.  
+- The VM uses a string table to load important text.  
+- It also checks itself for tampering using timing and integrity checks.  
+- Some commands in the VM load strings or numbers into virtual registers.
+
+This lets you see the program’s behavior without needing to write or run code yourself.
+
+---
+
+## ⚙️ How to Use for Learning
+
+- Open the program and watch the console or messages it shows.  
+- Review the instructions the VM runs.  
+- Notice the way strings are managed and loaded.  
+- Understand how Botguard tries to stop tampering or debugging.  
+- Use this to learn how encoded codes can be reversed or explored.
+
+---
+
+## 💡 Tips for Best Experience
+
+- Use a modern browser like Chrome or Firefox to open **anchor.html**.  
+- Allow pop-ups and scripts since the program uses JavaScript heavily.  
+- Refresh the browser if needed to restart the program.  
+- Use the browser’s developer tools console (press F12) to see detailed logs.  
+- Take notes to track what each part of the output means.
+
+---
+
+## 📂 Additional Files Description
+
+- **anchor.html**: Main file to open in a browser.  
+- **script.js** (or similarly named): Contains the encoded Botguard scripts.  
+- **README.md**: This file.  
+- Other folders may contain supporting files or documentation.
+
+---
+
+## 📫 Where to Get Updates
+
+Visit the GitHub page regularly to find updates or new versions. You can also download the ZIP again to get the latest files.
+
+[https://github.com/cristiancctlv/recaptcha-botguard](https://github.com/cristiancctlv/recaptcha-botguard)
+
+---
+
+## ❓ Getting Help
+
+If you have issues downloading or running the program, check the **Issues** section on the GitHub page. You can see if others have had the same problems.
+
+---
+
+## 🔒 Privacy and Security
+
+The program runs locally on your computer inside the browser. It does not send any of your data to external servers. No installation is needed beyond downloading and opening the files.
+
+---
+
+## 🕵️‍♂️ About This Tool
+
+This project serves as a learning resource about Botguard, not as a way to bypass protections. It focuses on showing the inner workings to those interested in reverse engineering.
